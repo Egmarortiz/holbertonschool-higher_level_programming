@@ -12,4 +12,3 @@ else:
     msg = "and is greater than 5"
 
 print(f"Last digit of {number} is {last} {msg}")
-
