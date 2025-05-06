@@ -7,8 +7,7 @@ Basic Python program.
 def main():
     str = "Holberton School"
     print(str * 3)
-    print(str[0:9])
+    print(str[:9])
 
 
-if __name__ == "__main__":
-    main()
+main()
