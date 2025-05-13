@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-for abc in range(97, 123):
-    if abc == 113 or abc == 101:
-        continue
-    print(f"{chr(abc)}", sep= '', end = '')
+
+print("{}".format(''.join(
+    chr(i) for i in range(97,123)
+    if i not in (ord('e'), ord('q'))
+)), end='')
