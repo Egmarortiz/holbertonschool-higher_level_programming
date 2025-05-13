@@ -1,6 +1,3 @@
 #!/usr/bin/python3
 
-
-for dec in range(99):
-    conversion = hex(dec)
-    print(f"{dec} = {conversion}")
+print('\n'.join(f"{dec:d} = {dec:02x}" for dec in range(99)))
