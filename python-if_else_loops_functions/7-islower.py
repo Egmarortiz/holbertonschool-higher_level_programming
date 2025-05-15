@@ -4,8 +4,7 @@ def islower(c):
 
     c = ord(c)
 
-    for dec in range(97, 123):
-        if c == dec:
-            print(f"{chr(c)} is lower")
-        else:
-            print(f"{chr(c)} is upper")
+    if c < 97 or c > 122:
+        print(f"{chr(c)} is upper")
+    else:
+        print(f"{chr(c)} is lower")
