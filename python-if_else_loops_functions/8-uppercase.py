@@ -6,6 +6,4 @@ def to_upper(c):
     return c
 
 def uppercase(str):
-    return ''.join(to_upper(c) for c in str)
-
-print(uppercase("Jarvis is the best."))
+    return "{}".format(''.join(to_upper(c) for c in str))
