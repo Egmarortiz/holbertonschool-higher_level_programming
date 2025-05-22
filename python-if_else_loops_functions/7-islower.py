@@ -2,9 +2,21 @@
 
 def islower(c):
 
-    c = ord(c)
+  #  code = ord(c)
 
-    if c < 97 or c > 122:
-        print(f"{chr(c)} is upper")
-    else:
-        print(f"{chr(c)} is lower")
+   # if code < 97 or code > 122:
+    #    print(f"{chr(code)} is upper")
+   # else:
+    #    print(f"{chr(code)} is lower")
+
+    if not isinstance(c, str) or len(c) != 1:
+        return False
+
+    code = ord(c)
+
+    return 97 <= code <= 122
+
+    if __name__ == "__main__":
+        tests = ['a', 'Z', 'm', '1', '', 'ab']
+        for ch in tests:
+            print(f"{repr(ch)} -> {islower(ch)}")
