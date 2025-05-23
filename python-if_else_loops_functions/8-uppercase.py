@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-def to_upper(c):
-    if 'a' <= c <= 'z':
-        return chr(ord(c) - 32)
-    return c
-
 def uppercase(str):
-    return "{}".format(''.join(to_upper(c) for c in str))
+    result = ""
+    for c in str:
+        if 97 <= ord(c) <= 122:
+            result += chr(ord(c) - 32)
+        else:
+            result += c
+    print("{}".format(result))
