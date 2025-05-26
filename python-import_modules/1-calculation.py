@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from caclculator_1.py
+from caclculator_1.py import add, sub, mul, div
 
 a = 10
 b = 5
