@@ -2,6 +2,9 @@
 
 def uniq_add(my_list=[]):
     total = 0
+    seen = set()
     for item in my_list:
-        total += item
+        if item not in seen:
+            seen.add(item)
+            total += item
     return total
