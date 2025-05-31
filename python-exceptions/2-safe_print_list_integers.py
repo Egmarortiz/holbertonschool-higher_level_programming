@@ -9,7 +9,5 @@ def safe_print_list_integers(my_list=[], x=0):
             count += 1
         except (ValueError, TypeError):
             continue  # Skip non-integer values silently
-        except IndexError:
-            break  # Stop if we try to access beyond the list
     print()
     return count
