@@ -7,7 +7,9 @@ Defines a function add_integer(a, b=98) that:
   - Returns the integer sum of int(a) + int(b)
 """
 
+
 def add_integer(a, b=98):
+
 
     """
     Adds two numbers after validating they are int or float.
