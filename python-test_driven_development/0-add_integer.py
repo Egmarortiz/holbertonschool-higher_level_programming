@@ -8,11 +8,13 @@ Defines a function add_integer(a, b=98) that:
 """
 
 def add_integer(a, b=98):
+
     """
     Adds two numbers after validating they are int or float.
     Floats are truncated toward zero before addition.
     If either a or b is not an int/float, raises TypeError.
     """
+
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):
