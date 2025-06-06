@@ -6,7 +6,6 @@ Using matrix_divided
 
 Import the function (filename starts with “2-”):
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
-# no output expected
 
 Basic matrix division:
 >>> matrix_divided([[1, 2], [3, 4]], 2)
