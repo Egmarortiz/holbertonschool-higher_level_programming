@@ -10,7 +10,6 @@ Defines a function add_integer(a, b=98) that:
 
 def add_integer(a, b=98):
 
-
     """
     Adds two numbers after validating they are int or float.
     Floats are truncated toward zero before addition.
