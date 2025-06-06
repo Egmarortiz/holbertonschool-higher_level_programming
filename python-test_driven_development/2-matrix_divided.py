@@ -1,13 +1,30 @@
 #!/usr/bin/python3
 
-def matrix_divided(matrix, div):
-    """
+"""
 matrix_divided.py
 
 Defines matrix_divided(matrix, div) that:
 - Validates matrix is a list of lists of int/float, all rows same size
 - Validates div is a non-zero int or float
 - Returns a new matrix where each element is rounded(el / div, 2)
+"""
+
+def matrix_divided(matrix, div):
+
+    """
+    Divides all elements of a matrix by a given number.
+
+    Args:
+        matrix (list of list of int/float): The matrix to be divided.
+        div (int/float): The divisor.
+
+    Returns:
+        list of list of float: A new matrix with the results of the division.
+
+    Raises:
+        TypeError: If the matrix is not a list of lists or if the elements
+            are not integers or floats.
+        ZeroDivisionError: If div is zero.
     """
 
     # 1. matrix must be list of lists
