@@ -1,6 +1,15 @@
 #!/usr/bin/python3
 
 def matrix_divided(matrix, div):
+    """
+matrix_divided.py
+
+Defines matrix_divided(matrix, div) that:
+- Validates matrix is a list of lists of int/float, all rows same size
+- Validates div is a non-zero int or float
+- Returns a new matrix where each element is rounded(el / div, 2)
+    """
+
     # 1. matrix must be list of lists
     if (not isinstance(matrix, list) or
         any(not isinstance(row, list) for row in matrix) or
