@@ -5,6 +5,7 @@ Function text_indentation(text) prints text with two new lines
 after each occurrence of '.', '?' or ':'.
 """
 
+
 def text_indentation(text):
 
     """
@@ -16,7 +17,6 @@ def text_indentation(text):
     Raises:
         TypeError: If text is not a string.
     """
-
 
     if not isinstance(text, str):
         raise TypeError("text must be a string")
