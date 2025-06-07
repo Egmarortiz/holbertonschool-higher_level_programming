@@ -9,6 +9,7 @@ Defines matrix_divided(matrix, div) that:
 - Returns a new matrix where each element is rounded(el / div, 2)
 """
 
+
 def matrix_divided(matrix, div):
 
     """
@@ -31,7 +32,8 @@ def matrix_divided(matrix, div):
     if (not isinstance(matrix, list) or
         any(not isinstance(row, list) for row in matrix) or
         len(matrix) == 0):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError("matrix must be a matrix
+                        (list of lists) of integers/floats")
 
     # 2. all rows must have same size
     row_length = len(matrix[0])
@@ -42,7 +44,8 @@ def matrix_divided(matrix, div):
     for row in matrix:
         for el in row:
             if not isinstance(el, (int, float)):
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError("matrix must be a matrix
+                                (list of lists) of integers/floats")
 
     # 4. div must be number and not zero
     if not isinstance(div, (int, float)):
