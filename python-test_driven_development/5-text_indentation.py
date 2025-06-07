@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""
+Function text_indentation(text) prints text with two new lines
+after each occurrence of '.', '?' or ':'.
+"""
+
 def text_indentation(text):
 
     """
