@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
- """
+    """
     Prints a square using the '#' character.
 
     Args:
