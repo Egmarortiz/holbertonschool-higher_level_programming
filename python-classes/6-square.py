@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Module 5-square: defines a Square with size and position validation, area, and print methods."""
+"""Module 5-square: defines a Square."""
+
 
 class Square:
     """Represents a square defined by its side length and print position."""
@@ -7,18 +8,9 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         """
         Initialize a new Square.
-
-        Args:
-            size (int): length of a side (default is 0)
-            position (tuple): (horizontal_offset, vertical_offset) (default is (0, 0))
-
-        Raises:
-            TypeError: if size is not an integer
-            ValueError: if size is less than 0
-            TypeError: if position is not a tuple of 2 positive integers
-        """
         self.size = size
         self.position = position
+        """
 
     @property
     def size(self):
@@ -96,4 +88,3 @@ class Square:
         # square rows
         for _ in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
-
