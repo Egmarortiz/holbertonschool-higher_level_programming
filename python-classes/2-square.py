@@ -6,7 +6,9 @@ class Square:
     """simple class Square"""
     def __init__(self, size):
         self.__size = size
+    """simple class Square"""
     if not isinstance(size, (int, float)):
         raise TypeError("size must be a number")
+    """simple class Square"""
     if size < 0:
         raise ValueError("size must be >= 0")
