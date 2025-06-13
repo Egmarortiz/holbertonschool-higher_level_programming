@@ -12,7 +12,7 @@ class Square:
     def size(self):
         """docustring"""
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         """docustring"""
@@ -25,5 +25,3 @@ class Square:
     def area(self):
         """docustring"""
         return self.__size ** 2
-
-
