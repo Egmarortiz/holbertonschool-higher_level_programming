@@ -1,57 +1,99 @@
 #!/usr/bin/python3
-"""Module 3-square: defines a Square."""
-
+"""Module 5-square: defines a Square with size and position validation, area, and print methods."""
 
 class Square:
-    """Module 3-square: defines a Square."""
+    """Represents a square defined by its side length and print position."""
+
     def __init__(self, size=0, position=(0, 0)):
-        """Module 3-square: defines a Square."""
-        self.__size = size
-        self.__position = position
+        """
+        Initialize a new Square.
+
+        Args:
+            size (int): length of a side (default is 0)
+            position (tuple): (horizontal_offset, vertical_offset) (default is (0, 0))
+
+        Raises:
+            TypeError: if size is not an integer
+            ValueError: if size is less than 0
+            TypeError: if position is not a tuple of 2 positive integers
+        """
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
-        """Module 3-square: defines a Square."""
+        """int: length of the square’s side."""
         return self.__size
 
-    @size.getter
+    @size.setter
     def size(self, value):
-        """Module 3-square: defines a Square."""
+        """
+        Validate and set the size of the square.
+
+        Args:
+            value (int): new side length
+
+        Raises:
+            TypeError: if value is not an integer
+            ValueError: if value is < 0
+        """
         if not isinstance(value, int):
-            raise TypeError("size must be an int")
+            raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
     @property
     def position(self):
-        """Module 3-square: defines a Square."""
+        """tuple: horizontal and vertical offsets for printing the square."""
         return self.__position
 
-    @position.getter
+    @position.setter
     def position(self, value):
-        """Module 3-square: defines a Square."""
+        """
+        Validate and set the print position.
+
+        Args:
+            value (tuple): must be a tuple of 2 positive integers
+
+        Raises:
+            TypeError: if value is not a tuple of 2 positive integers
+        """
         if (
-            not isinstance(value, tuple)
-            or len(value) != 2
-            or not all (isinstance(n, int) for n in value) or
-            not all(n >= 0 for n in value)
+            not isinstance(value, tuple) or
+            len(value) != 2 or
+            not all(isinstance(num, int) for num in value) or
+            not all(num >= 0 for num in value)
         ):
-            raise TypeError("position must be  a tuple of 2 positive integers")
-        self.__positioon = value
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
-        """Module 3-square: defines a Square."""
+        """
+        Calculate and return the current square area.
+
+        Returns:
+            int: area computed as size * size
+        """
         return self.__size ** 2
 
     def my_print(self):
-        """Module 3-square: defines a Square."""
+        """
+        Print the square using the '#' character, respecting position.
+
+        - Prints `position[1]` blank lines before the square.
+        - Each square line is prefixed by `position[0]` spaces.
+        - If size is 0, prints a single blank line.
+        """
         if self.__size == 0:
             print()
             return
 
+        # vertical offset
         for _ in range(self.__position[1]):
             print()
 
+        # square rows
         for _ in range(self.__size):
-            print("#" * self.__size)
+            print(" " * self.__position[0] + "#" * self.__size)
+
