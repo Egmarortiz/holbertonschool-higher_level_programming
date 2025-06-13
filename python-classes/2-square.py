@@ -13,4 +13,3 @@ class Square:
         if size < 0:
             """ Module contains a simple square"""
             raise ValueError("size must be >= 0")
-    
