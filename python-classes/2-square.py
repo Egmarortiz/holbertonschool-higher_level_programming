@@ -9,6 +9,6 @@ class Square:
         if not isinstance(size, int):
             """ Module contains a simple square"""
             raise TypeError("size must be an integer")
-        if size <= 0:
+        if size < 0:
             """ Module contains a simple square"""
             raise ValueError("size must be >= 0")
