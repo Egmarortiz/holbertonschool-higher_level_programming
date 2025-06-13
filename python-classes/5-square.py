@@ -27,4 +27,4 @@ class Square:
     def my_print(self):
         """Module 3-square: defines a Square."""
         for square in range(size):
-            print("{}".format("#" * size)
+            print("{}".format("#" * size))
