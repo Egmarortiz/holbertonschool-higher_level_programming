@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module that defines a Square class with size validation."""
 
+
 class Square:
     """Represents a square with a private size attribute."""
 
@@ -19,7 +20,7 @@ class Square:
 
     @property
     def size(self):
-        """int: The length of the square’s side (read-only via this property)."""
+        """int: The length of the square’s side"""
         return self.__size
 
     @size.setter
