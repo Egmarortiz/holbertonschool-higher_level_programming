@@ -3,7 +3,7 @@
 
 class Square:
     """ Module contains a simple square"""
-    def __inti__(self, size=0):
+    def __init__(self, size=0):
         """ Module contains a simple square"""
         self.__size = size
         if not isinstance(size, int):
