@@ -3,7 +3,7 @@
 
 
 class Square:
-    """simple class"""
+    """simple class Square"""
     def __init__(self, size):
         self.__size = size
     if not isinstance(size, (int, float)):
