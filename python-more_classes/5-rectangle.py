@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-#module 5
-
 """Module deines a rectangle"""
 
 
@@ -65,4 +62,3 @@ class Rectangle:
     def __del__(self):
         """Module defines a rectangle"""
         print("Bye rectangle...")
-
