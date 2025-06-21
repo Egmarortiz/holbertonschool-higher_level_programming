@@ -64,5 +64,5 @@ class Rectangle:
 
     def __del__(self):
         """Module defines a rectangle"""
-        print("Bye rectangle…")
+        print("Bye rectangle...")
 
