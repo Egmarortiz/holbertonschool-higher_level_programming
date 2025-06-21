@@ -59,7 +59,7 @@ class Rectangle:
         """Module deines a rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ""
-       row = str(self.print_symbol) * self.width
+        row = str(self.print_symbol) * self.width
         return "\n".join([row for _ in range(self.height)])
 
     def __repr__(self):
