@@ -1,27 +1,27 @@
 #!/usr/bin/python3
-"""Module deines a rectangle"""
+"""Defines a Rectangle class with area, perimeter, and print capabilities."""
 
 
 class Rectangle:
-    """Module defines a rectangle"""
+    """Represents a rectangle."""
+
     number_of_instances = 0
-    """Module deines a rectangle"""
     print_symbol = "#"
-    """Module defines a rectangle"""
+
     def __init__(self, width=0, height=0):
+        """Initialize a new Rectangle instance."""
         self.width = width
         self.height = height
-
-        type(self).number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
-        """Module defines a rectangle"""
+        """Get the width of the rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Module defines a rectangle"""
+        """Set the width with validation."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -30,12 +30,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Module defines a rectangle"""
+        """Get the height of the rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Module defines a rectangle"""
+        """Set the height with validation."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -43,29 +43,27 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Module deines a rectangle"""
-        return self.__width * self.__height
+        """Return the area of the rectangle."""
+        return self.width * self.height
 
     def perimeter(self):
-        """Module deines a rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        """Return the perimeter of the rectangle."""
+        if self.width == 0 or self.height == 0:
             return 0
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Module deines a rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        """Return a string representation using print_symbol."""
+        if self.width == 0 or self.height == 0:
             return ""
         row = str(self.print_symbol) * self.width
         return "\n".join([row for _ in range(self.height)])
 
     def __repr__(self):
-        """Module defines a rectangle"""
-        return f"Rectangle({self.__width}, {self.__height})"
+        """Return an official string representation to recreate the object."""
+        return f"Rectangle({self.width}, {self.height})"
 
     def __del__(self):
-        """Module defines a rectangle"""
-        type(self).number_of_instances -= 1
-        """Module defines a rectangle"""
-        print("Bye rectangle…")
-
+        """Print a message when an instance is deleted and update instance count."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
