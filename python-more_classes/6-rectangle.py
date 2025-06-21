@@ -6,13 +6,13 @@
 
 
 class Rectangle:
-    # intilializes the counter
+    """intilializes the counter"""
     number_of_instances = 0
     """Module defines a rectangle"""
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-        # adds an instance
+        """adds an instance"""
         type(self).number_of_instances += 1
 
     @property
@@ -68,7 +68,7 @@ class Rectangle:
 
     def __del__(self):
         """Module defines a rectangle"""
-        # deletes an instance
+        """deletes an instance"""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
 
