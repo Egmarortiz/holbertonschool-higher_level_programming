@@ -1,29 +1,27 @@
 #!/usr/bin/python3
-
-#module 8
-
-"""Module deines a rectangle"""
+"""Defines a Rectangle class with full functionality."""
 
 
 class Rectangle:
+    """Represents a rectangle."""
+
     number_of_instances = 0
     print_symbol = "#"
 
-    """Module defines a rectangle"""
     def __init__(self, width=0, height=0):
+        """Initialize a new Rectangle instance."""
         self.width = width
         self.height = height
-
-        type(self).number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
-        """Module defines a rectangle"""
+        """Retrieve the width of the rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Module defines a rectangle"""
+        """Set the width with validation."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -32,12 +30,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Module defines a rectangle"""
+        """Retrieve the height of the rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Module defines a rectangle"""
+        """Set the height with validation."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -45,45 +43,44 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Module deines a rectangle"""
-        return self.__width * self.__height
+        """Return the area of the rectangle."""
+        return self.width * self.height
 
     def perimeter(self):
-        """Module deines a rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        """Return the perimeter of the rectangle."""
+        if self.width == 0 or self.height == 0:
             return 0
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Module deines a rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        """Return the rectangle as a string of print_symbol characters."""
+        if self.width == 0 or self.height == 0:
             return ""
-        sym = str(self.print_symbol)
-        lines = [sym * self.__width for _ in range(self.__height)]
-        return "\n".join(lines)
+        line = str(self.print_symbol) * self.width
+        return "\n".join([line for _ in range(self.height)])
 
     def __repr__(self):
-        """Module defines a rectangle"""
-
-        return f"Rectangle({self.__width}, {self.__height})"
+        """Return a string representation that can recreate the instance."""
+        return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
-        """Module defines a rectangle"""
-        type(self).number_of_instances -= 1
-        print("Bye rectangle…")
+        """Print a message when an instance is deleted."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Module returns a rectangle""" 
+        """Return the rectangle with the greater area (or rect_1 if equal)."""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area >= rect_2.area:
+        if rect_1.area() >= rect_2.area():
             return rect_1
         return rect_2
 
     @classmethod
     def square(cls, size=0):
-        """Module returns rectangle"""
-        return cls(size, size) 
+        """Return a new Rectangle instance with width == height == size."""
+        return cls(size, size)
+
