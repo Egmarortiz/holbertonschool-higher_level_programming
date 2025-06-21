@@ -6,7 +6,9 @@
 
 
 class Rectangle:
+    """Module defines a rectangle"""
     number_of_instances = 0
+    """Module defines a rectangle"""
     print_symbol = "#"
 
     """Module defines a rectangle"""
@@ -57,9 +59,8 @@ class Rectangle:
         """Module deines a rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        sym = str(self.print_symbol)
-        lines = [sym * self.__width for _ in range(self.__height)]
-        return "\n".join(lines)
+       row = str(self.print_symbol) * self.width
+        return "\n".join([row for _ in range(self.height)])
 
     def __repr__(self):
         """Module defines a rectangle"""
@@ -68,6 +69,7 @@ class Rectangle:
     def __del__(self):
         """Module defines a rectangle"""
         type(self).number_of_instances -= 1
+        """Module defines a rectangle"""
         print("Bye rectangle…")
 
     @staticmethod
