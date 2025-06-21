@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-
-#module 7
-
 """Module deines a rectangle"""
 
 
 class Rectangle:
+    """Module defines a rectangle"""
     number_of_instances = 0
+    """Module deines a rectangle"""
     print_symbol = "#"
-
     """Module defines a rectangle"""
     def __init__(self, width=0, height=0):
         self.width = width
@@ -64,11 +62,11 @@ class Rectangle:
 
     def __repr__(self):
         """Module defines a rectangle"""
-
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
         """Module defines a rectangle"""
         type(self).number_of_instances -= 1
+        """Module defines a rectangle"""
         print("Bye rectangle…")
 
