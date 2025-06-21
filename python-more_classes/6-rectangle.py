@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-#module 6
-
 """Module deines a rectangle"""
 
 
@@ -71,4 +68,3 @@ class Rectangle:
         """deletes an instance"""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-
