@@ -1,0 +1,21 @@
+>>> MyList = __import__('1-my_list').MyList
+
+# Basic unsorted list
+>>> ml = MyList([8, 3, 5, 1])
+>>> ml.print_sorted()
+[1, 3, 5, 8]
+>>> ml
+[8, 3, 5, 1]
+
+
+# Empty list
+>>> MyList([]).print_sorted()
+[]
+
+# Already sorted
+>>> MyList([1, 2, 3, 4]).print_sorted()
+[1, 2, 3, 4]
+
+# Duplicates and negatives
+>>> MyList([0, -1, 2, -1]).print_sorted()
+[-1, -1, 0, 2]
