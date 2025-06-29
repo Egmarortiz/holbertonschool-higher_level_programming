@@ -7,6 +7,12 @@
 >>> ml
 [8, 3, 5, 1]
 
+# Append
+>>> ml = MyList([1, 2])
+>>> ml.append(3)
+>>> ml
+[1, 2 , 3]
+
 
 # Empty list
 >>> MyList([]).print_sorted()
