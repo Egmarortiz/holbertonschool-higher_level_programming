@@ -11,7 +11,7 @@
 >>> ml = MyList([1, 2])
 >>> ml.append(3)
 >>> ml
-[1, 2 , 3]
+[1, 2, 3]
 
 
 # Empty list
