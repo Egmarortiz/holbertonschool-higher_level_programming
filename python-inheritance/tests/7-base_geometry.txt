@@ -1,4 +1,4 @@
->>>  BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
 
 
 # Area alwasy raises an exception
@@ -32,7 +32,7 @@ Traceback (most recent call last):
     ...
 ValueError: length must be greater than 0
 
->>> b.ginteger_validatior("depth", -2)
+>>> bg.integer_validatior("depth", -2)
 Traceback (most recent call last):
     ...
 ValueError: depth must be greater than 0
