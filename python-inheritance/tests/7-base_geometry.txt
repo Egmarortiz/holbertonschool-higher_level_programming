@@ -1,39 +1,31 @@
->>> from base_geometry import BaseGeometry
+# Imports file that needs to be tested
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> 'area' in dir(bg)
+True
 
+>>> bg.integer_validator("my_int", 10)
+>>> bg.integer_validator("width", 5)
 
-# Area alwasy raises an exception
->>> BaseGeometry().area()
+>>> try:
+...	bg.integer_validator("name", "John")
+... except Exception as e:
+...    	print("[{}] {}".format(type(e).__name__, e))
+[TypeError] name must be an integer
+
+>>> try:
+...	bg.integer_validator("age", 0)
+... except Exception as e:
+...    	print("[{}] {}".format(type(e).__name__, e))
+[ValueError] age must be greater than 0
+
+>>> try:
+...	bg.integer_validator("distance", -5)
+... except Exception as e:
+...    	print("[{}] {}".format(type(e).__name__, e))
+[ValueError] distance must be greater than 0
+
+>>> bg.area()
 Traceback (most recent call last):
-    ...
+...
 Exception: area() is not implemented
-
-
-# Zero errors
->>> bg = BaseGeometry()
->>> bg.integer_validator("size", 5)
-
-
-# Non integer types
->>> bg = BaseGeometry()
->>> bg.integer_validator("width", 3.14)
-Traceback (most recent call last):
-    ...
-TypeError: width must be an integer
-
->>> bg.integer_validator("height", "10")
-Traceback (most recent call last):
-    ...
-TypeError: height must be an integer
-
-
-# Less or equal to 0
->>> bg.integer_validator("length", 0)
-Traceback (most recent call last):
-    ...
-ValueError: length must be greater than 0
-
->>> bg.integer_validatior("depth", -2)
-Traceback (most recent call last):
-    ...
-ValueError: depth must be greater than 0
-
