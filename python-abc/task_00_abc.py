@@ -17,10 +17,10 @@ class Dog(Animal):
     """Dog Class"""
     def sound(self):
         """Inherited sound method"""
-        print("Bark")
+        return "Bark"
 
 class Cat(Animal):
     """Cat class"""
     def sound(self):
         """Inherited sound method"""
-        print("Meow")
+        return "Meow"
