@@ -1,64 +1,41 @@
+#!/usr/bin/python3
 from abc import ABC, abstractmethod
 import math
 
 
 class Shape(ABC):
-    """Abstract base class for geometric shapes."""
-
     @abstractmethod
-    def area(self) -> float:
-        """Return the area of the shape."""
+    def area(self):
         pass
 
     @abstractmethod
-    def perimeter(self) -> float:
-        """Return the perimeter of the shape."""
+    def perimeter(self):
         pass
 
 
 class Circle(Shape):
-    """Circle shape defined by its radius."""
-
-    def __init__(self, radius: float):
+    def __init__(self, radius):
         self.radius = radius
 
-    def area(self) -> float:
-        return math.pi * self.radius ** 2
+    def area(self):
+        return abs(self.radius * self.radius) * math.pi
 
-    def perimeter(self) -> float:
-        return 2 * math.pi * self.radius
+    def perimeter(self):
+        return math.pi * abs(self.radius) * 2
 
 
 class Rectangle(Shape):
-    """Rectangle shape defined by width and height."""
-
-    def __init__(self, width: float, height: float):
+    def __init__(self, width, height):
         self.width = width
         self.height = height
 
-    def area(self) -> float:
+    def area(self):
         return self.width * self.height
 
-    def perimeter(self) -> float:
-        return 2 * (self.width + self.height)
+    def perimeter(self):
+        return (self.width + self.height) * 2
 
 
-def shape_info(shape: Shape) -> None:
-    """
-    Print the area and perimeter of any object
-    that implements the Shape interface.
-    """
+def shape_info(shape):
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
-
-
-if __name__ == "__main__":
-    c = Circle(5)
-    r = Rectangle(4, 6)
-
-    print("Circle (radius=5):")
-    shape_info(c)
-
-    print("\nRectangle (4x6):")
-    shape_info(r)
-
