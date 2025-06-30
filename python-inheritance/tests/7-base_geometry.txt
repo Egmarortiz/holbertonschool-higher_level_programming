@@ -1,4 +1,4 @@
->>> BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
+>>> from base_geometry import BaseGeometry
 
 
 # Area alwasy raises an exception
