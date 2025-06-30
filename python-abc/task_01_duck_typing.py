@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+"""Module defines abstract class"""
+
 
 from abc import ABC, abstractmethod
 from math import pi
 
 class Shape(ABC):
+    """Shape class"""
     @abstractmethod
     def area(self):
         pass
@@ -13,6 +16,7 @@ class Shape(ABC):
         pass
 
 class Circle(Shape):
+    """Circle Class"""
     def __init__(self, radius):
         self.radius = radius
 
@@ -23,6 +27,7 @@ class Circle(Shape):
         return 2 * pi * self.radius
 
 class Rectangle(Shape):
+    """Rectangle Class"""
     def __init__(self, width, height):
         self.width = width
         self.height = height
@@ -34,7 +39,5 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 def shape_info(arg1):
-    arg1.area()
     print(f"Area: {arg1.area()}")
-    arg1.perimeter()
     print(f"Perimeter: {arg1.perimeter()}")
