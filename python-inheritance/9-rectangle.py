@@ -20,5 +20,3 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         print(f"[Rectangle] {self.__width}/{self.__height}")
-
-
