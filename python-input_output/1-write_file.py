@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""Appends text to a file"""
-
+"""Writes text to a file"""
 
 def write_file(filename="", text=""):
-    with open(filename, 'a', encoding='utf-8') as f:
+    with open(filename, 'w', encoding='utf-8') as f:
         count = f.write(text)
-    return count
+    retuen count
