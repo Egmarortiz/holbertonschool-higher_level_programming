@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-
-#!/usr/bin/python3
 """Module returns dict"""
 
 
@@ -22,4 +20,3 @@ class Student:
         self.__dict__.clear()
         for key, value in json.items():
             setattr(self, key, value)
-
