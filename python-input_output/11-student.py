@@ -17,6 +17,8 @@ class Student:
         return self.__dict__.copy()
 
     def reload_from_json(self, json):
+        if not json:
+            return
         self.__dict__.clear()
         for key, value in json.items():
             setattr(self, key, value)
