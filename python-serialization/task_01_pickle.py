@@ -10,11 +10,13 @@ class CustomObject:
         self.is_student = is_student
 
     def display(self):
+        """Display Instance"""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
         print(f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
+    """Serialize Pickle"""
     try:
         with open(filename, "wb") as f:
             pickle.dump(self, f)
@@ -24,6 +26,7 @@ class CustomObject:
 
     @classmethod
     def deserialize(cls, filename):
+        """Deserialize Pickle"""
         try:
             with open(filename, 'rb') as f:
                 loaded = pickle.load(f)
