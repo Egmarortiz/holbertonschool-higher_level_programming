@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+
 """serialization and deserialization using XML"""
 import xml.etree.ElementTree as ET
 
@@ -12,7 +12,7 @@ def serialize_to_xml(dictionary, filename):
             child = ET.SubElement(root, key)
             child.text = str(value)
         tree = ET.ElementTree(root)
-        tree.write(filename, encoding='utf-8', xml_decalaration=True)
+        tree.write(filename, encoding='utf-8', xml_declaration=True)
         return True
     except (ET.ParseError, OSError, Exception):
         return False
@@ -20,7 +20,7 @@ def serialize_to_xml(dictionary, filename):
 def deserialize_from_xml(filename):
     """serialization and deserialization using XML"""
     try:
-        tree = ET.parse(filenmae)
+        tree = ET.parse(filename)
         root = tree.getroot()
         result = {}
         for child in root:
@@ -39,14 +39,15 @@ def _infer_type(text):
         return True
     if low == 'false':
         return False
-    # integers
+    # integer?
     try:
         return int(text)
     except ValueError:
         pass
-    # floats
+    # float?
     try:
         return float(text)
     except ValueError:
         pass
+    # fallback
     return text
