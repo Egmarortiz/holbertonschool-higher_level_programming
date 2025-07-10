@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-
+"""serialization and deserialization using XML"""
 import xml.etree.ElementTree as ET
 
+
 def serialize_to_xml(dictionary, filename):
+    """serialization and deserialization using XML"""
     try:
         root = ET.Element('data')
         for key, value in dictionary.items():
@@ -16,6 +18,7 @@ def serialize_to_xml(dictionary, filename):
         return False
 
 def deserialize_from_xml(filename):
+    """serialization and deserialization using XML"""
     try:
         tree = ET.parse(filenmae)
         root = tree.getroot()
@@ -27,6 +30,7 @@ def deserialize_from_xml(filename):
         return None
 
 def _infer_type(text):
+    """serialization and deserialization using XML"""
     if text is None:
         return None
     text = text.strip()
