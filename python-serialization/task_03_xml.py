@@ -1,53 +1,38 @@
-#!/usr/bin/python3
-"""serialization and deserialization using XML"""
+#!/usr/bin/env python3
+"""Module for serializing and deserializing a dictionary to and from XML."""
+
 import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(dictionary, filename):
-    """serialization and deserialization using XML"""
+    """
+    Serialize a Python dictionary to an XML file.
+    """
+    root = ET.Element('data')
+
+    for key, value in dictionary.items():
+        child = ET.SubElement(root, key)
+        child.text = str(value)
+
+    tree = ET.ElementTree(root)
     try:
-        root = ET.Element('data')
-        for key, value in dictionary.items():
-            # create an element for each key
-            child = ET.SubElement(root, key)
-            child.text = str(value)
-        tree = ET.ElementTree(root)
         tree.write(filename, encoding='utf-8', xml_declaration=True)
-        return True
-    except (ET.ParseError, OSError, Exception):
-        return False
+    except (OSError, ET.ParseError):
+        pass
+
 
 def deserialize_from_xml(filename):
-    """serialization and deserialization using XML"""
+    """
+    Deserialize an XML file into a Python dictionary
+    """
     try:
         tree = ET.parse(filename)
         root = tree.getroot()
+
         result = {}
         for child in root:
-            result[child.tag] = _infer_type(child.text)
-        return result
-    except (ET.ParseError, OSError, Exception):
-        return None
+            result[child.tag] = child.text
 
-def _infer_type(text):
-    """serialization and deserialization using XML"""
-    if text is None:
-        return None
-    text = text.strip()
-    low = text.lower()
-    if low == 'true':
-        return True
-    if low == 'false':
-        return False
-    # integer?
-    try:
-        return int(text)
-    except ValueError:
-        pass
-    # float?
-    try:
-        return float(text)
-    except ValueError:
-        pass
-    # fallback
-    return text
+        return result
+    except (FileNotFoundError, ET.ParseError, OSError):
+        return {}
