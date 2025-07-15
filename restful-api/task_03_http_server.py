@@ -16,7 +16,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
         elif self.path == '/data':
             # JSON data endpoint
             self.send_response(200)
-            self.send_header('Content-Type', 'application/json; charset=utf-8')
+            self.send_header('Content-Type', 'application/json')
             self.end_headers()
             payload = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
