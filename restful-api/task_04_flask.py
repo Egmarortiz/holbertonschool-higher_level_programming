@@ -1,57 +1,50 @@
 #!/usr/bin/python3
-
+"""Simple API implementation with Flask"""
 from flask import Flask, jsonify, request
 
-app = Flask(__name__)
+app = Flask (__name__)
 
-users = {
-    # do NOT include test users here when you push your code
-    # e.g. "jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}
+users = {}  # Memory storage for users
 
-}
-
-@app.route("/")
+@app.route('/')
 def home():
-    return f"Welcome to the Flask API!"
+    return "Welcome to the Flask API!"
 
-@app.route("/data", methods=['GET'])
-def return_json():
-    usernames = list(users.keys())
-    return jsonify(usernames)
+@app.route('/data')
+def get_data():
+    return jsonify(list(users.keys()))
 
-@app.route("/status", methods=['GET'])
-def return_status():
-    return f'OK'
+@app.route('/status')
+def status():
+    return "OK"
 
-@app.route("/users/<username>", methods=['GET'])
-def return_user(username):
+@app.route('/users/<username>')
+def get_user(username):
     user = users.get(username)
-    if not user:
-        return jsonify({'error': 'User not found'}), 404
+    if user:
+        return jsonify(user)
+    else:
+        return jsonify({"error": "User not found"}), 404
 
-    # Merge username into the response payload
-    response = {'username': username, **user}
-    return jsonify(response), 200
-
-@app.route("/add_user", methods=['POST'])
+@app.route('/add_user', methods=['POST'])
 def add_user():
-    data = request.get_json(force=True)
-    username = data.get('username')
-    if not username:
-        return jsonify({'error': 'Username is required'}), 400
+    data = request.get_json()
 
-    user_record = {
-            'name': data.get('name'),
-            'age': data.get('age'),
-            'city': data.get('city'),
-        }
+    if not data or 'username' not in data:
+        return jsonify({"error": "Username is required"}), 400
 
-    users[username] = user_record
+    username = data['username']
+    users[username] = {
+        "username": username,
+        "name": data.get('name', ""),
+        "age": data.get('age', ""),
+        "city": data.get('city', "")
+    }
 
     return jsonify({
-        'message': f'user "{username}" added.',
-        'user': user_record
-        }), 201
+        "message": "User added",
+        "user": users[username]
+    }), 201
 
-
-if __name__ == "__main__": app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
