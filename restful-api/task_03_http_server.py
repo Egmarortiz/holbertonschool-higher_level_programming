@@ -31,7 +31,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-Type', 'text/plain; charset=utf-8')
             self.end_headers()
-            message = f"404 Not Found: The requested URL {self.path} was not found on this server."
+            message = f"404 Not Found: Endpoint not found."
             self.wfile.write(message.encode('utf-8'))
 
 
