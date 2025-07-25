@@ -1,3 +1,4 @@
+-- Displays number of shows that belong to a genre
 SELECT
   tv_genres.name AS genre,
   COUNT(*) AS number_of_shows
