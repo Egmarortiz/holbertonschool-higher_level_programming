@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Lists all states in database hbtn_0e_0_usa,
 it should take 3 arguments
