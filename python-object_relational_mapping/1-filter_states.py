@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-List all states that start N.
+List all states with a name starting with N (upper N).
 """
+
 
 import MySQLdb
 import sys
