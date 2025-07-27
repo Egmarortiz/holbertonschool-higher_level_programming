@@ -1,29 +1,19 @@
 #!/usr/bin/python3
-"""
-List all the cities
-"""
-
-
-import sys
+"""Lists all cities from usa database"""
 import MySQLdb
-
+import sys
 
 if __name__ == "__main__":
-    # Get command line arguments
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
-    database_name = sys.argv[3]
+    username, password, db_name = sys.argv[1:4]
 
-    # Connect to MySQL server
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=mysql_username,
-        passwd=mysql_password,
-        db=database_name
+        user=username,
+        passwd=password,
+        db=db_name
     )
 
-    # Create
     cursor = db.cursor()
 
     cursor.execute("""
@@ -33,15 +23,8 @@ if __name__ == "__main__":
         ORDER BY cities.id ASC;
     """)
 
-    # Fetch all results
-    results = cursor.fetchall()
-
-    # Print results
-    for row in results:
+    for row in cursor.fetchall():
         print(row)
 
-    # Close cursor and database connection
     cursor.close()
     db.close()
-
-
